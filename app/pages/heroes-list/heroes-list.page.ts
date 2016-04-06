@@ -14,7 +14,11 @@ export class HeroesListPage implements OnInit {
   constructor(private _heroService: HeroService, private _navCtrl: NavController) { }
 
   getHeroes() {
-    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+    // this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this._heroService.getHeroes().subscribe(
+      heroes => this.heroes = heroes,
+      error => console.error(error)
+    );
   }
 
   public onHeroSelected(selectedHero: Hero) {
