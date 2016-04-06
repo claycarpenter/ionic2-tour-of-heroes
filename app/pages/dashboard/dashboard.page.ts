@@ -25,6 +25,16 @@ export class DashboardPage implements OnInit {
     this._navCtrl.push(HeroDetailPage, {hero: selectedHero});
   }
 
+  public addHero(name: string) {
+    if (!name) { return; }
+
+    this._heroService.addHero(name)
+                      .subscribe(
+                        hero => this.heroes.push(hero),
+                        error => console.log(error)
+                      );
+  }
+
   ngOnInit() {
     this.getHeroes();
   }

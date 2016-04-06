@@ -11,4 +11,11 @@
       </div>
     </ion-col>
   </ion-row>
+  <div>
+    <h4>New Hero:</h4>
+    <input #newHero />
+    <button (click)="addHero(newHero.value); newHero.value=''">
+      Add Hero
+    </button>
+  </div>
 </ion-content>
