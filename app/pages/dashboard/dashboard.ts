@@ -1,16 +1,22 @@
 import {Page} from 'ionic-angular';
+import {OnInit} from 'angular2/core';
 import {Hero} from '../../lib/hero';
-import {HEROES} from '../../lib/mock-heroes';
+import {HeroService} from '../../lib/hero.service';
 
 
 @Page({
   templateUrl: 'build/pages/dashboard/dashboard.html'
 })
-export class Dashboard {
-  public hero: Hero;
-  public heroes: Hero[] = HEROES;
+export class Dashboard implements OnInit {
+  public heroes: Hero[];
 
-  constructor() {
-    this.hero = new Hero(82, 'ClayTron');
+  constructor(private _heroService: HeroService) { }
+
+  getHeroes() {
+    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+
+  ngOnInit() {
+    this.getHeroes();
   }
 }
