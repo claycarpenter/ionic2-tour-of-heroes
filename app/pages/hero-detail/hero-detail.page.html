@@ -1,0 +1,14 @@
+<ion-navbar *navbar>
+  <ion-title>Hero Details</ion-title>
+</ion-navbar>
+
+<ion-content padding class="hero-detail">
+  <h2>{{hero.name}} Details</h2>
+  <div>
+		<label>id: </label>{{hero.id}}
+  </div>
+	<div>
+		<label>name: </label>
+		<input [(ngModel)]="hero.name" placeholder="name"/>
+	</div>
+</ion-content>
