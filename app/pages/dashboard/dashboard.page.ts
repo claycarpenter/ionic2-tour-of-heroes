@@ -5,9 +5,9 @@ import {HeroService} from '../../lib/hero.service';
 
 
 @Page({
-  templateUrl: 'build/pages/dashboard/dashboard.html'
+  templateUrl: 'build/pages/dashboard/dashboard.page.html'
 })
-export class Dashboard implements OnInit {
+export class DashboardPage implements OnInit {
   public heroes: Hero[];
 
   constructor(private _heroService: HeroService) { }

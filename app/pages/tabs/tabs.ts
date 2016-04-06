@@ -1,5 +1,5 @@
 import {Page} from 'ionic-angular';
-import {Dashboard} from '../dashboard/dashboard';
+import {DashboardPage} from '../dashboard/dashboard.page';
 
 
 @Page({
@@ -8,5 +8,5 @@ import {Dashboard} from '../dashboard/dashboard';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  dashboardTabRoot: any = Dashboard;
+  dashboardTabRoot: any = DashboardPage;
 }
