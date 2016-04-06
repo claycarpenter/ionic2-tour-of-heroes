@@ -4,9 +4,11 @@
 
 <ion-content padding class="dashboard">
   <h2>Top Heroes</h2>
-  <ion-list>
-    <ion-item *ngFor="#hero of heroes">
-      {{hero.id}} - {{hero.name}}
-    </ion-item>
-  </ion-list>
+  <ion-row wrap>
+    <ion-col width-50 *ngFor="#hero of heroes">
+      <div class="top-hero-grid-item">
+        {{hero.id}} - {{hero.name}}
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>
