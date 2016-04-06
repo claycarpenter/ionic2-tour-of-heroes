@@ -1,0 +1,12 @@
+<ion-navbar *navbar>
+  <ion-title>All Heroes</ion-title>
+</ion-navbar>
+
+<ion-content padding class="heroes-list">
+  <h2>All Heroes</h2>
+  <ion-list>
+    <ion-item *ngFor="#hero of heroes">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
