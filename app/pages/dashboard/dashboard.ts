@@ -13,7 +13,7 @@ export class Dashboard implements OnInit {
   constructor(private _heroService: HeroService) { }
 
   getHeroes() {
-    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this._heroService.getTopHeroes(5).then(heroes => this.heroes = heroes);
   }
 
   ngOnInit() {
