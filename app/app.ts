@@ -3,12 +3,17 @@ import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 import {HeroService} from './lib/hero.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/Rx';   // Import all RxJS Observable operators
 
 
 @App({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-  providers: [HeroService]
+  providers: [
+    HTTP_PROVIDERS,
+    HeroService
+  ]
 })
 export class MyApp {
   rootPage: any = TabsPage;

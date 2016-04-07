@@ -14,11 +14,25 @@ export class DashboardPage implements OnInit {
   constructor(private _heroService: HeroService, private _navCtrl: NavController) { }
 
   getHeroes() {
-    this._heroService.getTopHeroes(5).then(heroes => this.heroes = heroes);
+    // this._heroService.getTopHeroes(5).then(heroes => this.heroes = heroes);
+    this._heroService.getHeroes().subscribe(
+      heroes => this.heroes = heroes.slice(0, 5),
+      error => console.error(error)
+    );
   }
 
   public onSelectHero(selectedHero: Hero) {
-    this._navCtrl.push(HeroDetailPage, {hero: selectedHero});
+    this._navCtrl.push(HeroDetailPage, {id: selectedHero.id});
+  }
+
+  public addHero(name: string) {
+    if (!name) { return; }
+
+    this._heroService.addHero(name)
+                      .subscribe(
+                        hero => this.heroes.push(hero),
+                        error => console.log(error)
+                      );
   }
 
   ngOnInit() {
