@@ -9,22 +9,22 @@ import {HEROES} from './mock-heroes';
 export class HeroService {
   constructor(private _http: Http) { }
 
-  private _heroesUrl = 'http://localhost:3000/heroes/';
+  private _heroesUrl = 'http://localhost:3000/heroes';
 
   getHeroes() {
-    // return Promise.resolve(HEROES);
-
     return this._http.get(this._heroesUrl)
                 .map(res => <Hero[]> res.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);
   }
 
-  getTopHeroes(count: number) {
-    // let allHeroesQ = this.getHeroes();
-    //
-    // return allHeroesQ.then(heroes => heroes.slice(0, count));
+  getHero(id: number) {
+    return this._http.get(`${this._heroesUrl}/${id}`)
+                      .map(res => <Hero> res.json())
+                      .catch(this.handleError);
+  }
 
+  getTopHeroes(count: number) {
     this.getHeroes().subscribe(
       heroes => heroes.slice(0, count),
       error => error

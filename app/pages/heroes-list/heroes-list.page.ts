@@ -14,7 +14,6 @@ export class HeroesListPage implements OnInit {
   constructor(private _heroService: HeroService, private _navCtrl: NavController) { }
 
   getHeroes() {
-    // this._heroService.getHeroes().then(heroes => this.heroes = heroes);
     this._heroService.getHeroes().subscribe(
       heroes => this.heroes = heroes,
       error => console.error(error)
@@ -24,7 +23,7 @@ export class HeroesListPage implements OnInit {
   public onHeroSelected(selectedHero: Hero) {
     console.log(`Selected hero: ${selectedHero.name}`);
 
-    this._navCtrl.push(HeroDetailPage, {hero: selectedHero});
+    this._navCtrl.push(HeroDetailPage, {id: selectedHero.id});
   }
 
   ngOnInit() {

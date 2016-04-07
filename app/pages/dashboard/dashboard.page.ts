@@ -22,7 +22,7 @@ export class DashboardPage implements OnInit {
   }
 
   public onSelectHero(selectedHero: Hero) {
-    this._navCtrl.push(HeroDetailPage, {hero: selectedHero});
+    this._navCtrl.push(HeroDetailPage, {id: selectedHero.id});
   }
 
   public addHero(name: string) {
